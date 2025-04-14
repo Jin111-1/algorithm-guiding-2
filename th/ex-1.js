@@ -7,7 +7,23 @@
 
 function heaviestBagPair(bagWeights) {
   // Start Coding Here
-}
+  if (bagWeights.length < 2) {
+    return null;
+  };
+
+  let maxSum = bagWeights[0] + bagWeights[1];
+  let maxPair = [bagWeights[0], bagWeights[1]];
+    for (let i = 1; i < bagWeights.length - 1; i++) {
+    const currentSum = bagWeights[i] + bagWeights[i + 1];
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+      maxPair = [bagWeights[i], bagWeights[i + 1]];
+    };
+  };
+
+  return `${maxPair} เพราะเป็นคู่กระเป๋าที่หนักที่สุด ${maxSum}`
+
+};
 
 console.log(heaviestBagPair([5, 8, 12, 15, 7]));
 // Output: [12, 15] เพราะเป็นคู่กระเป๋าที่หนักที่สุด (27 กก.)
